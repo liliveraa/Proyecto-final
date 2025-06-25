@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="López de la Cruz Andrea, Pérez Pérez Natalia Itzel, Vázquez Angulo Emireth, Vera Hernández Lilian Mayte">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio web de repostería">
+  <title>Azúcar y Magía</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Azúcar y Magía</h1>
+    <img src="logo.png" alt="Logo" class="logo">
+    <nav>
+      <a href="#Inicio">Inicio</a>
+      <a href="Nosotros.html">Nosotros</a>
+      <a href="Productos.html">Productos</a>
+      <a href="#video">Video</a>
+      <a href="Contacto.html">Contacto</a>
+      <a href="login.html">Iniciar Sesión</a>
+    </nav>
+  </header>
+    <section id="Inicio">
+      <h2>Bienvenidos a Azúcar y Magía</h2>
+      <p>Los postres más deliciosos a un clic de distancia</p><br>
+  <section id="video">
+    <h2>Video Azúcar y Magía</h2><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/nIKETM0avRU?si=7pL32n1y2c5PZhaz" title="Video de Azúcar y Magía" frameborder="0" allowfullscreen></iframe>
+  </section>
+  <section id="login">
+    <h2>Iniciar Sesión</h2><br>
+    <form>
+      <input type="email" placeholder="Correo" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+    </form>
+  </section>
+  <footer class="pie-pagina">
+   <div class="seccion">
+      <h2>Contactos</h2><br>
+      <a href="https://www.facebook.com/share/1MqaxA48R2/?mibextid=wwXIfr"> <i class="fa-brands fa-facebook"></i> Facebook</a><br><br>
+      <a href="https://www.instagram.com/"> <i class="fa-brands fa-instagram"></i> Instagram</a>
+    </div><br>
+      <p>Regino Hernández Llergo 104<br> Centro, 86605<br> Paraíso, Tab.</p><br>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.2507495290097!2d-93.21221321481443!3d18.39949720579571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ee8d42ea6dca0f%3A0x61ce54d8ca676cd7!2sSucursal%20FRUTIMAR%20Para%C3%ADso!5e0!3m2!1ses-419!2smx!4v1748889996087!5m2!1ses-419!2smx" 
+      width="300" height="cover" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div><br><br>
+    <p>&copy; 2025 Azúcar y Magía. Todos los derechos reservados &copy; LANE</p>
+  </footer>
+<script>
+    src="https://kit.fontawesome.com/81581fb069.js"
+    crossorigin="anonymous"
+    </script>
+  <script>
+    const botones = document.querySelectorAll('.agregar');
+    const lista = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+    const contador = document.getElementById('contador');
+    let total = 0;
+    let cantidad = 0;
+
+    botones.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const producto = boton.parentElement;
+        const nombre = producto.getAttribute('data-nombre');
+        const precio = parseFloat(producto.getAttribute('data-precio'));
+
+        const li = document.createElement('li');
+        li.textContent = `${nombre} - $${precio} MXN`;
+        lista.appendChild(li);
+
+        total += precio;
+        cantidad++;
+
+        totalSpan.textContent = total;
+        contador.textContent = cantidad;
+      });
+    });
+  </script>
+</body>
+</html>

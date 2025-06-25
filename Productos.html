@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Nuestros productos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <br><h2>Nuestros productos</h2>
+    <a href="index.html">Volver a la página principal</a>
+    <nav>
+    <a href="#carrito">Carrito (<span id="contador">0</span>)</a>
+    </nav>
+<section id="productos">
+      <div class="producto" data-nombre="Pastel de Fresa" data-precio="350">
+      <img src="fresa.jpg" alt="Pastel de Fresa">
+      <h3>Pastel de Fresa</h3>
+      <p>$350 MXN</p>
+      <button class="agregar">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-nombre="Pastel Explotion" data-precio="400">
+      <img src="cakechoco.jpg" alt="Pastel Explotion">
+      <h3>Pastel Explotion</h3>
+      <p>$400 MXN</p>
+      <button class="agregar">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-nombre="Cake Pineapple" data-precio="360">
+      <img src="piña.webp" alt="Cake Pineapple">
+      <h3>Cake Pineapple</h3>
+      <p>$360 MXN</p>
+      <button class="agregar">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-nombre="Zanahoria Cake" data-precio="300">
+      <img src="zanh.jpg" alt="Zanahoria Cake">
+      <h3>Zanahoria Cake</h3>
+      <p>$300 MXN</p>
+      <button class="agregar">Agregar al carrito</button>
+    </div>
+     <div class="producto" data-nombre="Red-velvet" data-precio="420">
+      <img src="red.webp" alt="Red-velvet">
+      <h3>Red-velvet Cake</h3>
+      <p>$420 MXN</p>
+      <button class="agregar">Agregar al carrito</button>
+    </div>
+  </section>
+    <section id="carrito">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <h2>Carrito de Compras</h2>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0</span> MXN</p>
+  </section>
+    <script>
+    const botones = document.querySelectorAll('.agregar');
+    const lista = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+    const contador = document.getElementById('contador');
+    let total = 0;
+    let cantidad = 0;
+
+    botones.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const producto = boton.parentElement;
+        const nombre = producto.getAttribute('data-nombre');
+        const precio = parseFloat(producto.getAttribute('data-precio'));
+
+        const li = document.createElement('li');
+        li.textContent = `${nombre} - $${precio} MXN`;
+        lista.appendChild(li);
+
+        total += precio;
+        cantidad++;
+
+        totalSpan.textContent = total;
+        contador.textContent = cantidad;
+      });
+    });
+  </script>
+</body>
+</html>
